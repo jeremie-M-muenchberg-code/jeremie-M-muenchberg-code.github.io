@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plum — ein plum deal</title>
+    <meta
+      name="description"
+      content="Plum prüft Preise auf deutschen Shop-Seiten — nur nach deinem Klick. Ein plum deal, DSGVO-konform, ohne Tracking im Hintergrund."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Sans+3:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #2a1524;
+        --paper: #f6eef2;
+        --plum: #6b2d5b;
+        --plum-deep: #4a1d3e;
+        --mist: #e0c9d6;
+        --warn: #8a5a12;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: 'Source Sans 3', system-ui, sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(1200px 600px at 10% -10%, #f3dce8 0%, transparent 55%),
+          radial-gradient(900px 500px at 100% 0%, #ebd4e2 0%, transparent 50%),
+          linear-gradient(180deg, #fbf6f8 0%, var(--paper) 40%, #eddce6 100%);
+        min-height: 100vh;
+      }
+      .hero {
+        min-height: 100vh;
+        display: grid;
+        align-content: center;
+        padding: 2.5rem clamp(1.25rem, 4vw, 4rem);
+        max-width: 72rem;
+        margin: 0 auto;
+        position: relative;
+      }
+      .hero::before {
+        content: '';
+        position: absolute;
+        inset: 12% -5% auto auto;
+        width: min(48vw, 28rem);
+        height: min(48vw, 28rem);
+        background:
+          linear-gradient(145deg, rgba(107, 45, 91, 0.18), rgba(74, 29, 62, 0.05)),
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Crect fill='%236b2d5b' width='160' height='160' rx='36'/%3E%3Cpath fill='%23f6eef2' d='M38 86h84v12H38zm12-28h60v12H50z'/%3E%3Ccircle fill='%23f6eef2' cx='118' cy='48' r='14'/%3E%3C/svg%3E")
+            center / 40% no-repeat;
+        border-radius: 40% 60% 55% 45%;
+        filter: blur(0.2px);
+        opacity: 0.95;
+        animation: drift 12s ease-in-out infinite alternate;
+        pointer-events: none;
+      }
+      @keyframes drift {
+        from {
+          transform: translateY(0) rotate(-2deg);
+        }
+        to {
+          transform: translateY(18px) rotate(3deg);
+        }
+      }
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .brand {
+        font-family: Fraunces, Georgia, serif;
+        font-size: clamp(3rem, 9vw, 5.5rem);
+        line-height: 0.95;
+        letter-spacing: -0.03em;
+        margin: 0 0 1rem;
+        max-width: 12ch;
+        animation: rise 0.7s ease both;
+      }
+      .lead {
+        font-size: clamp(1.1rem, 2.4vw, 1.35rem);
+        max-width: 34rem;
+        margin: 0 0 1.75rem;
+        color: #4a3044;
+        animation: rise 0.8s 0.1s ease both;
+      }
+      .cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem 1rem;
+        animation: rise 0.85s 0.18s ease both;
+      }
+      .cta a {
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.85rem 1.25rem;
+        border-radius: 0.35rem;
+      }
+      .cta .primary {
+        background: var(--plum);
+        color: #fcf7fa;
+      }
+      .cta .primary:hover {
+        background: var(--plum-deep);
+      }
+      .cta .ghost {
+        color: var(--plum-deep);
+        border: 1px solid var(--mist);
+        background: rgba(255, 255, 255, 0.35);
+      }
+      section {
+        padding: 4rem clamp(1.25rem, 4vw, 4rem);
+        max-width: 42rem;
+        margin: 0 auto;
+      }
+      section h2 {
+        font-family: Fraunces, Georgia, serif;
+        font-size: 1.75rem;
+        margin: 0 0 0.75rem;
+      }
+      section p {
+        margin: 0 0 1rem;
+        line-height: 1.55;
+      }
+      footer {
+        padding: 2rem clamp(1.25rem, 4vw, 4rem) 3rem;
+        border-top: 1px solid var(--mist);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem 1.5rem;
+        font-size: 0.95rem;
+      }
+      footer a {
+        color: var(--plum-deep);
+      }
+      .uwg {
+        color: var(--warn);
+        font-size: 0.95rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <h1 class="brand">Plum</h1>
+      <p class="lead">
+        Ein plum deal auf deutschen Shop-Seiten — erst wenn du klickst. Kein
+        Hintergrund-Tracking, klare Alternativen inkl. Partnerhinweis.
+      </p>
+      <div class="cta">
+        <a class="primary" href="#install">Chrome-Erweiterung</a>
+        <a class="ghost" href="./privacy.html">Datenschutz</a>
+      </div>
+    </header>
+
+    <section id="install">
+      <h2>So funktioniert’s</h2>
+      <p>
+        Auf einer Produktseite erscheint „Plum“. Erst nach dem Klick
+        liest Plum lokal Titel, Preis und ggf. EAN und fragt unseren
+        Server nach Alternativen.
+      </p>
+      <p class="uwg">
+        Hinweis: Einige Links können Partnerlinks sein. Wenn du darüber kaufst,
+        können wir eine Provision erhalten — ohne Mehrkosten für dich.
+      </p>
+      <p>
+        Installation: Chrome Web Store (Link nach Freigabe) oder lokal geladenes
+        Production-Build aus dem Repository.
+      </p>
+    </section>
+
+    <footer>
+      <a href="./privacy.html">Datenschutzerklärung</a>
+      <a href="./impressum.html">Impressum</a>
+      <a href="https://github.com/">GitHub</a>
+    </footer>
+  </body>
+</html>
