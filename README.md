@@ -1,3 +1,3 @@
 # Plum
 
-Öffentliche Website (Datenschutz, Impressum). Der Produktcode liegt im privaten Repo.
+Ã–ffentliche Website (Datenschutz, Impressum).
