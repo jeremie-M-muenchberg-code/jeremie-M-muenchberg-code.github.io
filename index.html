@@ -143,14 +143,22 @@
       footer {
         padding: 1.5rem 0 3rem;
         border-top: 1px solid var(--mist);
+        font-size: 0.95rem;
+      }
+      .footer-links {
         display: flex;
         flex-wrap: wrap;
         gap: 1rem 1.5rem;
-        font-size: 0.95rem;
       }
       footer a,
       main a {
         color: var(--plum-deep);
+      }
+      .copyright {
+        display: block;
+        margin-top: 1.75rem;
+        color: #5a3d50;
+        font-size: 0.85rem;
       }
     </style>
   </head>
@@ -211,9 +219,11 @@
     </main>
 
     <footer>
-      <a href="./privacy.html">Datenschutz</a>
-      <a href="./impressum.html">Impressum</a>
-      <span>Jeremie Münchberg · Deutschland</span>
+      <div class="footer-links">
+        <a href="./privacy.html">Datenschutz</a>
+        <a href="./impressum.html">Impressum</a>
+      </div>
+      <p class="copyright">© 2026 Jeremie Münchberg · Deutschland</p>
     </footer>
   </body>
 </html>
