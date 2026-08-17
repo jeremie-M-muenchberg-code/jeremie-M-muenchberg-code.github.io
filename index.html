@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="./plum.svg" type="image/svg+xml" />
     <title>Plum — Preisvergleich auf Klick</title>
     <meta
       name="description"
@@ -45,6 +46,20 @@
       }
       header {
         padding: 4.5rem 0 2rem;
+      }
+      .brand-lockup {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        margin: 0 0 1rem;
+      }
+      .brand-lockup img {
+        width: clamp(3.1rem, 8vw, 4.2rem);
+        height: auto;
+        flex-shrink: 0;
+      }
+      .brand-lockup h1 {
+        margin: 0;
       }
       .eyebrow {
         font-weight: 600;
@@ -135,7 +150,10 @@
   <body>
     <header>
       <p class="eyebrow">Chrome-Erweiterung</p>
-      <h1>Plum</h1>
+      <div class="brand-lockup">
+        <img src="./plum.svg" width="72" height="72" alt="" />
+        <h1>Plum</h1>
+      </div>
       <p class="lead">
         Siehst du einen Preis im Shop — MediaMarkt, Amazon, Otto und andere —
         sagt Plum dir auf Klick, ob er fair ist und wo es günstiger geht.
