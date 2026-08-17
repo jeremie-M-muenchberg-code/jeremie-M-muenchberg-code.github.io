@@ -7,7 +7,7 @@
     <title>Plum — Preisvergleich auf Klick</title>
     <meta
       name="description"
-      content="Plum ist eine Chrome-Erweiterung für deutsche Shops: Deal-Score und günstigere Preise — erst nach deinem Klick, ohne Tracking im Hintergrund."
+      content="Plum ist eine Chrome-Erweiterung für den deutschen Handel: derselbe Artikel über die EAN, Preise vergleichen — erst nach Klick. Produktdaten u. a. über Open Icecat."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -78,7 +78,7 @@
       }
       .lead {
         font-size: 1.2rem;
-        max-width: 34rem;
+        max-width: 36rem;
         margin: 0 0 1.5rem;
         color: #4a3044;
         line-height: 1.45;
@@ -134,6 +134,12 @@
         color: var(--warn);
         font-size: 0.95rem;
       }
+      .catalog {
+        background: rgba(255, 255, 255, 0.55);
+        border: 1px solid var(--mist);
+        border-radius: 0.7rem;
+        padding: 1.1rem 1.15rem;
+      }
       footer {
         padding: 1.5rem 0 3rem;
         border-top: 1px solid var(--mist);
@@ -149,54 +155,77 @@
   </head>
   <body>
     <header>
-      <p class="eyebrow">Chrome-Erweiterung</p>
+      <p class="eyebrow">Channel Partner · Deutscher Handel</p>
       <div class="brand-lockup">
         <img src="./plum.svg" width="72" height="72" alt="" />
         <h1>Plum</h1>
       </div>
       <p class="lead">
-        Siehst du einen Preis im Shop — MediaMarkt, Amazon, Otto und andere —
-        sagt Plum dir auf Klick, ob er fair ist und wo es günstiger geht.
+        Plum ist eine Chrome-Erweiterung für Käufer in deutschen Shops.
+        Derselbe Artikel wird über die EAN erkannt — unabhängig davon, ob du
+        gerade bei MediaMarkt, Amazon, Otto oder einem anderen Händler bist.
+        Ein Klick zeigt, ob der Preis fair ist und wo derselbe Artikel günstiger
+        liegt.
       </p>
       <span class="chip">Bald im Chrome Web Store</span>
     </header>
 
     <main>
       <section>
-        <h2>So nutzt du es</h2>
+        <h2>Für Nutzer</h2>
         <ol>
           <li>
             <strong>1. Produktseite öffnen</strong>
-            Der Button „Plum“ erscheint nur, wenn Plum eine Produktseite erkennt.
-            Auf Such- oder Kategorie-Seiten bleibt er weg.
+            Der Button „Plum“ erscheint nur auf erkannten Artikel-Seiten,
+            nicht auf Suche oder Kategorie.
           </li>
           <li>
             <strong>2. Auf „Plum“ klicken</strong>
-            Erst dann liest die Erweiterung lokal Titel, Preis und falls vorhanden
-            die EAN — und holt Vergleichspreise.
+            Erst dann liest die Erweiterung lokal Titel, Preis und — wenn
+            vorhanden — die EAN. Ohne Klick geht nichts an einen Server.
           </li>
           <li>
-            <strong>3. Deal-Score und Alternativen</strong>
-            Du siehst, ob der aktuelle Preis günstig, fair oder teuer wirkt,
-            plus andere Shops mit Link.
+            <strong>3. Vergleich sehen</strong>
+            Deal-Score (günstig / fair / teuer) und Angebote anderer Händler
+            für denselben Artikel.
           </li>
         </ol>
       </section>
 
       <section>
-        <h2>Was Plum nicht macht</h2>
+        <h2>Produktdaten</h2>
+        <div class="catalog">
+          <p>
+            Plum ist <strong>kein</strong> Crawler und kein Ersatz für
+            Hersteller-Datenblätter. Die Identität eines Artikels kommt aus der
+            EAN (GTIN) und aus standardisierten Stammdaten.
+          </p>
+          <p>
+            Titel, Marke und Identifiers beziehen wir unter anderem aus
+            <a href="https://icecat.biz/" rel="noopener">Open Icecat</a>
+            — dem von Marken gesponserten, freien Produktkatalog. Shop-Preise
+            kommen von Händler-Angeboten, nicht aus Icecat.
+          </p>
+          <p class="muted" style="margin: 0">
+            Product data by Icecat / Open Icecat.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Datenschutz</h2>
         <p class="muted">
-          Kein Tracking im Hintergrund. Keine Aufzeichnung, welche Seiten du
-          besuchst. Keine Weitergabe der kompletten Shop-URL oder deines
-          Browserverlaufs. Beim ersten Mal fragst du im Popup um Erlaubnis.
+          Kein Tracking im Hintergrund, kein Browserverlauf, keine komplette
+          Seiten-URL. Verarbeitung nur nach Einwilligung im Popup und nur für
+          den angefragten Preisvergleich.
         </p>
       </section>
 
       <section>
         <h2>Partnerlinks</h2>
         <p class="uwg">
-          Manche Alternativen sind Partnerlinks. Kaufst du darüber, kann Plum
-          eine Provision bekommen — für dich wird es nicht teurer.
+          Manche Händler-Links sind Partnerlinks. Ein Kauf darüber kann Plum
+          eine Provision bringen — ohne Mehrkosten für dich.
         </p>
       </section>
     </main>
@@ -204,6 +233,7 @@
     <footer>
       <a href="./privacy.html">Datenschutz</a>
       <a href="./impressum.html">Impressum</a>
+      <a href="https://icecat.biz/" rel="noopener">Open Icecat</a>
     </footer>
   </body>
 </html>
