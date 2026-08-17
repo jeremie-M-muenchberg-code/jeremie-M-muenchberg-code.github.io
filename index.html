@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Plum — ein plum deal</title>
+    <title>Plum — Preisvergleich auf Klick</title>
     <meta
       name="description"
-      content="Plum prüft Preise auf deutschen Shop-Seiten — nur nach deinem Klick. Ein plum deal, DSGVO-konform, ohne Tracking im Hintergrund."
+      content="Plum ist eine Chrome-Erweiterung für deutsche Shops: Deal-Score und günstigere Preise — erst nach deinem Klick, ohne Tracking im Hintergrund."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,110 +31,96 @@
         font-family: 'Source Sans 3', system-ui, sans-serif;
         color: var(--ink);
         background:
-          radial-gradient(1200px 600px at 10% -10%, #f3dce8 0%, transparent 55%),
-          radial-gradient(900px 500px at 100% 0%, #ebd4e2 0%, transparent 50%),
-          linear-gradient(180deg, #fbf6f8 0%, var(--paper) 40%, #eddce6 100%);
+          radial-gradient(900px 480px at 8% -8%, #f3dce8 0%, transparent 55%),
+          radial-gradient(700px 400px at 100% 0%, #ebd4e2 0%, transparent 50%),
+          linear-gradient(180deg, #fbf6f8 0%, var(--paper) 45%, #eddce6 100%);
         min-height: 100vh;
       }
-      .hero {
-        min-height: 100vh;
-        display: grid;
-        align-content: center;
-        padding: 2.5rem clamp(1.25rem, 4vw, 4rem);
-        max-width: 72rem;
-        margin: 0 auto;
-        position: relative;
+      header,
+      main,
+      footer {
+        width: min(44rem, calc(100% - 2.5rem));
+        margin-left: auto;
+        margin-right: auto;
       }
-      .hero::before {
-        content: '';
-        position: absolute;
-        inset: 12% -5% auto auto;
-        width: min(48vw, 28rem);
-        height: min(48vw, 28rem);
-        background:
-          linear-gradient(145deg, rgba(107, 45, 91, 0.18), rgba(74, 29, 62, 0.05)),
-          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Crect fill='%236b2d5b' width='160' height='160' rx='36'/%3E%3Cpath fill='%23f6eef2' d='M38 86h84v12H38zm12-28h60v12H50z'/%3E%3Ccircle fill='%23f6eef2' cx='118' cy='48' r='14'/%3E%3C/svg%3E")
-            center / 40% no-repeat;
-        border-radius: 40% 60% 55% 45%;
-        filter: blur(0.2px);
-        opacity: 0.95;
-        animation: drift 12s ease-in-out infinite alternate;
-        pointer-events: none;
+      header {
+        padding: 4.5rem 0 2rem;
       }
-      @keyframes drift {
-        from {
-          transform: translateY(0) rotate(-2deg);
-        }
-        to {
-          transform: translateY(18px) rotate(3deg);
-        }
+      .eyebrow {
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        color: var(--plum);
+        margin: 0 0 0.75rem;
       }
-      @keyframes rise {
-        from {
-          opacity: 0;
-          transform: translateY(16px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .brand {
+      h1 {
         font-family: Fraunces, Georgia, serif;
-        font-size: clamp(3rem, 9vw, 5.5rem);
+        font-size: clamp(2.8rem, 8vw, 4.4rem);
         line-height: 0.95;
         letter-spacing: -0.03em;
         margin: 0 0 1rem;
-        max-width: 12ch;
-        animation: rise 0.7s ease both;
       }
       .lead {
-        font-size: clamp(1.1rem, 2.4vw, 1.35rem);
+        font-size: 1.2rem;
         max-width: 34rem;
-        margin: 0 0 1.75rem;
+        margin: 0 0 1.5rem;
         color: #4a3044;
-        animation: rise 0.8s 0.1s ease both;
+        line-height: 1.45;
       }
-      .cta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem 1rem;
-        animation: rise 0.85s 0.18s ease both;
-      }
-      .cta a {
-        text-decoration: none;
-        font-weight: 600;
-        padding: 0.85rem 1.25rem;
-        border-radius: 0.35rem;
-      }
-      .cta .primary {
+      .chip {
+        display: inline-block;
         background: var(--plum);
         color: #fcf7fa;
+        font-weight: 600;
+        padding: 0.55rem 1rem;
+        border-radius: 999px;
+        font-size: 0.95rem;
       }
-      .cta .primary:hover {
-        background: var(--plum-deep);
-      }
-      .cta .ghost {
-        color: var(--plum-deep);
-        border: 1px solid var(--mist);
-        background: rgba(255, 255, 255, 0.35);
+      main {
+        padding-bottom: 3rem;
       }
       section {
-        padding: 4rem clamp(1.25rem, 4vw, 4rem);
-        max-width: 42rem;
-        margin: 0 auto;
+        margin: 0 0 2.5rem;
       }
-      section h2 {
+      h2 {
         font-family: Fraunces, Georgia, serif;
-        font-size: 1.75rem;
-        margin: 0 0 0.75rem;
-      }
-      section p {
+        font-size: 1.55rem;
         margin: 0 0 1rem;
+      }
+      p,
+      li {
         line-height: 1.55;
       }
+      p {
+        margin: 0 0 0.85rem;
+      }
+      ol {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 0.85rem;
+      }
+      ol li {
+        background: rgba(255, 255, 255, 0.55);
+        border: 1px solid var(--mist);
+        border-radius: 0.7rem;
+        padding: 1rem 1.1rem;
+      }
+      ol strong {
+        display: block;
+        margin-bottom: 0.2rem;
+      }
+      .muted {
+        color: #5a3d50;
+      }
+      .uwg {
+        color: var(--warn);
+        font-size: 0.95rem;
+      }
       footer {
-        padding: 2rem clamp(1.25rem, 4vw, 4rem) 3rem;
+        padding: 1.5rem 0 3rem;
         border-top: 1px solid var(--mist);
         display: flex;
         flex-wrap: wrap;
@@ -144,46 +130,62 @@
       footer a {
         color: var(--plum-deep);
       }
-      .uwg {
-        color: var(--warn);
-        font-size: 0.95rem;
-      }
     </style>
   </head>
   <body>
-    <header class="hero">
-      <h1 class="brand">Plum</h1>
+    <header>
+      <p class="eyebrow">Chrome-Erweiterung</p>
+      <h1>Plum</h1>
       <p class="lead">
-        Ein plum deal auf deutschen Shop-Seiten — erst wenn du klickst. Kein
-        Hintergrund-Tracking, klare Alternativen inkl. Partnerhinweis.
+        Siehst du einen Preis im Shop — MediaMarkt, Amazon, Otto und andere —
+        sagt Plum dir auf Klick, ob er fair ist und wo es günstiger geht.
       </p>
-      <div class="cta">
-        <a class="primary" href="#install">Chrome-Erweiterung</a>
-        <a class="ghost" href="./privacy.html">Datenschutz</a>
-      </div>
+      <span class="chip">Bald im Chrome Web Store</span>
     </header>
 
-    <section id="install">
-      <h2>So funktioniert’s</h2>
-      <p>
-        Auf einer Produktseite erscheint „Plum“. Erst nach dem Klick
-        liest Plum lokal Titel, Preis und ggf. EAN und fragt unseren
-        Server nach Alternativen.
-      </p>
-      <p class="uwg">
-        Hinweis: Einige Links können Partnerlinks sein. Wenn du darüber kaufst,
-        können wir eine Provision erhalten — ohne Mehrkosten für dich.
-      </p>
-      <p>
-        Installation: Chrome Web Store (Link nach Freigabe) oder lokal geladenes
-        Production-Build aus dem Repository.
-      </p>
-    </section>
+    <main>
+      <section>
+        <h2>So nutzt du es</h2>
+        <ol>
+          <li>
+            <strong>1. Produktseite öffnen</strong>
+            Der Button „Plum“ erscheint nur, wenn Plum eine Produktseite erkennt.
+            Auf Such- oder Kategorie-Seiten bleibt er weg.
+          </li>
+          <li>
+            <strong>2. Auf „Plum“ klicken</strong>
+            Erst dann liest die Erweiterung lokal Titel, Preis und falls vorhanden
+            die EAN — und holt Vergleichspreise.
+          </li>
+          <li>
+            <strong>3. Deal-Score und Alternativen</strong>
+            Du siehst, ob der aktuelle Preis günstig, fair oder teuer wirkt,
+            plus andere Shops mit Link.
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Was Plum nicht macht</h2>
+        <p class="muted">
+          Kein Tracking im Hintergrund. Keine Aufzeichnung, welche Seiten du
+          besuchst. Keine Weitergabe der kompletten Shop-URL oder deines
+          Browserverlaufs. Beim ersten Mal fragst du im Popup um Erlaubnis.
+        </p>
+      </section>
+
+      <section>
+        <h2>Partnerlinks</h2>
+        <p class="uwg">
+          Manche Alternativen sind Partnerlinks. Kaufst du darüber, kann Plum
+          eine Provision bekommen — für dich wird es nicht teurer.
+        </p>
+      </section>
+    </main>
 
     <footer>
-      <a href="./privacy.html">Datenschutzerklärung</a>
+      <a href="./privacy.html">Datenschutz</a>
       <a href="./impressum.html">Impressum</a>
-      <a href="https://github.com/">GitHub</a>
     </footer>
   </body>
 </html>
