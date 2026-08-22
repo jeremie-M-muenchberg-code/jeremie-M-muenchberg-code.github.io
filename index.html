@@ -25,6 +25,10 @@
         --mist: #c9bfe0;
         --text-muted: #4a4268;
         --surface: rgba(255, 255, 255, 0.42);
+        /* φ ≈ 1.618 → major ≈ 61.8%, minor ≈ 38.2% */
+        --phi: 1.618;
+        --phi-major: 61.8%;
+        --phi-minor: 38.2%;
       }
 
       * {
@@ -49,13 +53,15 @@
 
       .page {
         min-height: 100dvh;
+        height: 100dvh;
         display: grid;
-        grid-template-rows: 80dvh 20dvh;
+        grid-template-rows: var(--phi-major) var(--phi-minor);
       }
 
       .stage {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        /* links Pitch (φ), rechts Video (1) ≈ 61.8% / 38.2% */
+        grid-template-columns: minmax(0, 1.618fr) minmax(0, 1fr);
         min-height: 0;
         padding: clamp(1.25rem, 3vw, 2.5rem);
         gap: clamp(1rem, 3vw, 2.5rem);
@@ -63,7 +69,7 @@
       }
 
       .pitch {
-        max-width: 32rem;
+        max-width: none;
         padding-inline: clamp(0.25rem, 2vw, 1.5rem);
         animation: rise 0.7s ease-out both;
       }
@@ -268,7 +274,7 @@
           align-items: flex-start;
           justify-content: center;
           padding-block: 1.25rem;
-          min-height: 20dvh;
+          min-height: var(--phi-minor);
         }
       }
     </style>
