@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="./plum.svg" type="image/svg+xml" />
+    <link rel="icon" href="./plum-fresh.svg" type="image/svg+xml" />
     <title>Plum — Preisvergleich auf Klick</title>
     <meta
       name="description"
@@ -17,11 +17,14 @@
     />
     <style>
       :root {
-        --ink: #2a1524;
-        --paper: #f6eef2;
+        --ink: #1e1838;
+        --paper: #ece8f7;
         --plum: #6b2d5b;
+        --plum-bright: #8a4576;
         --plum-deep: #4a1d3e;
-        --mist: #e0c9d6;
+        --plum-blue: #5c52a8;
+        --mist: #c9bfe0;
+        --text-muted: #4a4268;
         --warn: #8a5a12;
       }
       * {
@@ -32,9 +35,9 @@
         font-family: 'Source Sans 3', system-ui, sans-serif;
         color: var(--ink);
         background:
-          radial-gradient(900px 480px at 8% -8%, #f3dce8 0%, transparent 55%),
-          radial-gradient(700px 400px at 100% 0%, #ebd4e2 0%, transparent 50%),
-          linear-gradient(180deg, #fbf6f8 0%, var(--paper) 45%, #eddce6 100%);
+          radial-gradient(900px 480px at 8% -8%, #ddd4f5 0%, transparent 55%),
+          radial-gradient(700px 400px at 100% 0%, #d0c8ec 0%, transparent 50%),
+          linear-gradient(180deg, #f8f6fc 0%, var(--paper) 45%, #e2dcf5 100%);
         min-height: 100vh;
       }
       header,
@@ -58,6 +61,37 @@
         height: auto;
         flex-shrink: 0;
       }
+      .hero-mascot {
+        display: block;
+        width: min(11rem, 42vw);
+        height: auto;
+        margin: 1.75rem 0 0;
+        filter: drop-shadow(0 10px 24px rgba(30, 24, 56, 0.14));
+      }
+      @media (min-width: 640px) {
+        .hero-mascot {
+          margin-left: auto;
+          margin-right: 0;
+        }
+        header {
+          display: grid;
+          grid-template-columns: 1fr auto;
+          grid-template-rows: auto auto auto auto;
+          column-gap: 1.5rem;
+          align-items: start;
+        }
+        .eyebrow { grid-column: 1; }
+        .brand-lockup { grid-column: 1; }
+        .lead { grid-column: 1; }
+        .chip { grid-column: 1; justify-self: start; }
+        .hero-mascot {
+          grid-column: 2;
+          grid-row: 1 / span 4;
+          align-self: center;
+          width: 10.5rem;
+          margin: 0;
+        }
+      }
       .brand-lockup h1 {
         margin: 0;
       }
@@ -80,13 +114,13 @@
         font-size: 1.2rem;
         max-width: 36rem;
         margin: 0 0 1.5rem;
-        color: #4a3044;
+        color: var(--text-muted);
         line-height: 1.45;
       }
       .chip {
         display: inline-block;
-        background: var(--plum);
-        color: #fcf7fa;
+        background: linear-gradient(135deg, var(--plum-blue), var(--plum));
+        color: #f7f2fc;
         font-weight: 600;
         padding: 0.55rem 1rem;
         border-radius: 999px;
@@ -128,7 +162,7 @@
         margin-bottom: 0.2rem;
       }
       .muted {
-        color: #5a3d50;
+        color: var(--text-muted);
       }
       .uwg {
         color: var(--warn);
@@ -157,7 +191,7 @@
       .copyright {
         display: block;
         margin-top: 1.75rem;
-        color: #5a3d50;
+        color: var(--text-muted);
         font-size: 0.85rem;
       }
     </style>
@@ -166,7 +200,7 @@
     <header>
       <p class="eyebrow">Chrome-Erweiterung</p>
       <div class="brand-lockup">
-        <img src="./plum.svg" width="72" height="72" alt="" />
+        <img src="./plum-fresh.svg" width="72" height="72" alt="Plum Logo" />
         <h1>Plum</h1>
       </div>
       <p class="lead">
@@ -175,6 +209,14 @@
         fair ist und wo es denselben Artikel günstiger gibt.
       </p>
       <span class="chip">Bald im Chrome Web Store</span>
+      <img
+        class="hero-mascot"
+        src="./plum-mascot.svg"
+        width="168"
+        height="168"
+        alt=""
+        aria-hidden="true"
+      />
     </header>
 
     <main>
