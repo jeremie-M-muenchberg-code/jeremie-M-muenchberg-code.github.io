@@ -113,6 +113,13 @@
         color: var(--text-muted);
       }
 
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.75rem 0.85rem;
+      }
+
       .cta {
         display: inline-flex;
         align-items: center;
@@ -124,6 +131,92 @@
         padding: 0.7rem 1.15rem;
         border-radius: 999px;
         box-shadow: 0 10px 28px rgba(74, 29, 62, 0.22);
+        white-space: nowrap;
+      }
+
+      .waitlist {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.45rem;
+        flex: 1 1 14rem;
+        min-width: min(100%, 14rem);
+      }
+
+      .waitlist input[type='email'] {
+        flex: 1 1 10rem;
+        min-width: 0;
+        height: 2.65rem;
+        padding: 0 0.9rem;
+        border: 1px solid var(--mist);
+        border-radius: 0.65rem;
+        background: rgba(255, 255, 255, 0.72);
+        color: var(--ink);
+        font: inherit;
+        font-size: 0.95rem;
+      }
+
+      .waitlist input[type='email']::placeholder {
+        color: #7a7394;
+      }
+
+      .waitlist input[type='email']:focus {
+        outline: 2px solid var(--plum);
+        outline-offset: 1px;
+        border-color: var(--plum);
+      }
+
+      .waitlist button {
+        height: 2.65rem;
+        padding: 0 1rem;
+        border: 0;
+        border-radius: 0.65rem;
+        background: var(--plum-deep);
+        color: #faf7fc;
+        font: inherit;
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .waitlist button:hover {
+        background: var(--plum);
+      }
+
+      .waitlist button:disabled {
+        opacity: 0.65;
+        cursor: wait;
+      }
+
+      .waitlist-status {
+        flex-basis: 100%;
+        margin: 0.15rem 0 0;
+        font-size: 0.88rem;
+        line-height: 1.35;
+        color: var(--text-muted);
+        min-height: 1.2em;
+      }
+
+      .waitlist-status.is-ok {
+        color: var(--plum-deep);
+        font-weight: 600;
+      }
+
+      .waitlist-status.is-err {
+        color: #8a2f45;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
       }
 
       .demo {
@@ -293,7 +386,23 @@
             dir sofort, ob der Preis fair ist und wo du sparen kannst. Kein
             Tab-Hopping, kein Rätselraten.
           </p>
-          <span class="cta">Bald im Chrome Web Store</span>
+          <div class="cta-row">
+            <span class="cta">Bald im Chrome Web Store</span>
+            <form class="waitlist" id="waitlist-form" novalidate>
+              <label class="sr-only" for="waitlist-email">E-Mail für die Warteliste</label>
+              <input
+                id="waitlist-email"
+                type="email"
+                name="email"
+                autocomplete="email"
+                inputmode="email"
+                placeholder="E-Mail für Updates"
+                required
+              />
+              <button type="submit">Benachrichtigen</button>
+              <p class="waitlist-status" id="waitlist-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
         </div>
 
         <div class="demo">
@@ -321,7 +430,12 @@
           <a href="./privacy.html">Datenschutz</a>
           <a href="./impressum.html">Impressum</a>
         </div>
-        <p class="copyright">© 2026 Plum</p>
+        <p class="copyright">
+          © <span id="copyright-year">2026</span> Plum • All Rights Reserved
+        </p>
+        <script>
+          document.getElementById('copyright-year').textContent = new Date().getFullYear();
+        </script>
       </footer>
     </div>
 
@@ -329,16 +443,71 @@
       (function () {
         var video = document.getElementById('demo-video');
         var frame = document.getElementById('demo-frame');
-        if (!video || !frame) return;
-
-        function markReady() {
-          frame.classList.remove('is-empty');
+        if (video && frame) {
+          function markReady() {
+            frame.classList.remove('is-empty');
+          }
+          video.addEventListener('loadeddata', markReady);
+          video.addEventListener('canplay', markReady);
+          video.addEventListener('error', function () {
+            frame.classList.add('is-empty');
+          });
         }
 
-        video.addEventListener('loadeddata', markReady);
-        video.addEventListener('canplay', markReady);
-        video.addEventListener('error', function () {
-          frame.classList.add('is-empty');
+        // FormSubmit delivers signups to the Impressum address (activate once via confirmation email).
+        var WAITLIST_ENDPOINT =
+          'https://formsubmit.co/ajax/jeremiemunchbergsoftware@gmail.com';
+        var form = document.getElementById('waitlist-form');
+        var statusEl = document.getElementById('waitlist-status');
+        var emailInput = document.getElementById('waitlist-email');
+        if (!form || !statusEl || !emailInput) return;
+
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+          var email = (emailInput.value || '').trim();
+          if (!email || !emailInput.checkValidity()) {
+            statusEl.textContent = 'Bitte eine gültige E-Mail eingeben.';
+            statusEl.className = 'waitlist-status is-err';
+            emailInput.focus();
+            return;
+          }
+
+          var button = form.querySelector('button[type="submit"]');
+          statusEl.textContent = 'Wird gesendet…';
+          statusEl.className = 'waitlist-status';
+          if (button) button.disabled = true;
+
+          fetch(WAITLIST_ENDPOINT, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+            },
+            body: JSON.stringify({
+              email: email,
+              _subject: 'Plum Warteliste',
+              message: 'Bitte zur Plum-Warteliste hinzufügen.',
+            }),
+          })
+            .then(function (res) {
+              if (!res.ok) throw new Error('bad status');
+              return res.json().catch(function () {
+                return {};
+              });
+            })
+            .then(function () {
+              statusEl.textContent = 'Danke — wir melden uns zum Launch.';
+              statusEl.className = 'waitlist-status is-ok';
+              form.reset();
+            })
+            .catch(function () {
+              statusEl.textContent =
+                'Konnte nicht senden. Bitte später nochmal versuchen.';
+              statusEl.className = 'waitlist-status is-err';
+            })
+            .finally(function () {
+              if (button) button.disabled = false;
+            });
         });
       })();
     </script>

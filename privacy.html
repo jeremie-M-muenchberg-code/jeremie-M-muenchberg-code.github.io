@@ -57,13 +57,13 @@
         <strong>kein</strong> serverseitiges Tracking und kein Auslesen von
         Seiteninhalten statt, bevor du auf „Plum“ klickst.
       </p>
-      <p>Nach dem Klick sendet die Erweiterung an unsere API (HTTPS):</p>
+      <p>Nach dem Klick sendet die Erweiterung an unsere API (HTTPS Verschlüsselt):</p>
       <ul>
         <li>Shop-Domain (z. B. <code>mediamarkt.de</code>)</li>
         <li>aktueller Preis in Cent</li>
-        <li>optional EAN/GTIN, falls auf der Seite gefunden</li>
-        <li>optional Titel und Marke (für den Abgleich ohne EAN)</li>
-        <li>optional shopinterne Produkt-IDs (z. B. ASIN/SKU)</li>
+        <li>möglicherweise EAN/GTIN, falls auf der Seite gefunden</li>
+        <li>möglicherweise Titel und Marke </li>
+        <li>möglicherweise shopinterne Produkt-IDs (Z.B. SKU)</li>
       </ul>
       <p>
         Nicht übermittelt werden: vollständige Seiten-URL, Browserverlauf,
@@ -81,7 +81,7 @@
         Preis, Zeitstempel) zur Median-/Deal-Score-Berechnung. Es werden keine
         Nutzerkonten und keine dauerhaften Geräte-IDs geführt. Hosting und
         Datenbank (PostgreSQL) liegen beim vom Anbieter gewählten
-        Infrastrukturdienst (siehe Impressum / Deploy-Umgebung).
+        Infrastrukturdienst.
       </p>
       <p>
         Technische Logs enthalten nur Metadaten (Zeit, Pfad, Statuscode,
@@ -99,7 +99,6 @@
       <p>
         Preisbeobachtungen werden für die Score-Berechnung (typisch 90 Tage
         Medianfenster) vorgehalten und danach gelöscht oder aggregiert.
-        Einwilligungsstatus liegt nur lokal in <code>chrome.storage.local</code>.
       </p>
 
       <h2>6. Deine Rechte</h2>
@@ -113,7 +112,18 @@
       <h2>7. Website</h2>
       <p>
         Diese statische Website setzt keine Analyse-Cookies. Beim Aufruf können
-        beim Host (z. B. GitHub Pages) übliche Server-Access-Logs anfallen.
+        beim Host übliche Server-Access-Logs anfallen.
+      </p>
+
+      <h2>8. Warteliste / Newsletter</h2>
+      <p>
+        Wenn du dich auf der Website mit deiner E-Mail für Launch-Updates
+        einträgst, verarbeiten wir diese Adresse ausschließlich zur Benachrichtigung
+        über den Release der Chrome-Erweiterung und verwandte Produkt-News.
+        Rechtsgrundlage: Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a DSGVO (Einwilligung).
+        Die Übermittlung erfolgt über den Formular-Dienst FormSubmit an uns;
+        es gelten zusätzlich deren Hinweise. Du kannst die Einwilligung jederzeit
+        per E-Mail an uns widerrufen.
       </p>
     </main>
   </body>
