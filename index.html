@@ -92,15 +92,13 @@
       .page {
         min-height: calc(100dvh - var(--nav-h));
         height: calc(100dvh - var(--nav-h));
-        display: grid;
-        grid-template-rows: var(--phi-major) var(--phi-minor);
       }
 
       .stage {
         display: grid;
         /* links Pitch (φ), rechts Video (1) ≈ 61.8% / 38.2% */
         grid-template-columns: minmax(0, 1.618fr) minmax(0, 1fr);
-        min-height: 0;
+        min-height: 100%;
         padding: clamp(1.25rem, 3vw, 2.5rem);
         gap: clamp(1rem, 3vw, 2.5rem);
         align-items: center;
@@ -460,7 +458,8 @@
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
-        padding: 0 clamp(1.25rem, 3vw, 2.5rem);
+        min-height: 8rem;
+        padding: 2rem clamp(1.25rem, 3vw, 2.5rem);
         border-top: 1px solid rgba(201, 191, 224, 0.65);
         background: var(--surface);
         backdrop-filter: blur(10px);
@@ -596,13 +595,13 @@
         }
 
         .page {
-          grid-template-rows: auto auto;
           min-height: calc(100dvh - var(--nav-h));
           height: auto;
         }
 
         .stage {
           grid-template-columns: 1fr;
+          min-height: auto;
           padding-top: 2rem;
           padding-bottom: 1.25rem;
           align-content: start;
@@ -623,7 +622,7 @@
           align-items: flex-start;
           justify-content: center;
           padding-block: 1.25rem;
-          min-height: var(--phi-minor);
+          min-height: 8rem;
         }
       }
     </style>
@@ -688,15 +687,6 @@
         </div>
       </section>
 
-      <footer class="rail">
-        <div class="rail-links">
-          <a href="./privacy.html">Datenschutz</a>
-          <a href="./impressum.html">Impressum</a>
-        </div>
-        <p class="copyright">
-          © <span id="copyright-year">2026</span> Plum • All Rights Reserved
-        </p>
-      </footer>
     </div>
 
     <section class="faq" id="faq" aria-labelledby="faq-title">
@@ -747,6 +737,16 @@
         </div>
       </div>
     </section>
+
+    <footer class="rail">
+      <div class="rail-links">
+        <a href="./privacy.html">Datenschutz</a>
+        <a href="./impressum.html">Impressum</a>
+      </div>
+      <p class="copyright">
+        © <span id="copyright-year">2026</span> Plum • All Rights Reserved
+      </p>
+    </footer>
 
     <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title">
       <div class="contact-panel">
