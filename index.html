@@ -18,254 +18,323 @@
     <style>
       :root {
         --ink: #1e1838;
-        --paper: #ece8f7;
+        --paper: #f4f0fa;
         --plum: #6b2d5b;
         --plum-bright: #8a4576;
         --plum-deep: #4a1d3e;
-        --plum-blue: #5c52a8;
         --mist: #c9bfe0;
         --text-muted: #4a4268;
-        --warn: #8a5a12;
+        --surface: rgba(255, 255, 255, 0.42);
       }
+
       * {
         box-sizing: border-box;
       }
+
+      html,
       body {
         margin: 0;
+        height: 100%;
+      }
+
+      body {
         font-family: 'Source Sans 3', system-ui, sans-serif;
         color: var(--ink);
         background:
-          radial-gradient(900px 480px at 8% -8%, #ddd4f5 0%, transparent 55%),
-          radial-gradient(700px 400px at 100% 0%, #d0c8ec 0%, transparent 50%),
-          linear-gradient(180deg, #f8f6fc 0%, var(--paper) 45%, #e2dcf5 100%);
-        min-height: 100vh;
+          radial-gradient(1200px 700px at 12% 8%, #e8dff8 0%, transparent 55%),
+          radial-gradient(900px 600px at 88% 20%, #d9cfe8 0%, transparent 50%),
+          linear-gradient(165deg, #faf8fc 0%, var(--paper) 55%, #e6dff2 100%);
+        overflow-x: hidden;
       }
-      header,
-      main,
-      footer {
-        width: min(44rem, calc(100% - 2.5rem));
-        margin-left: auto;
-        margin-right: auto;
+
+      .page {
+        min-height: 100dvh;
+        display: grid;
+        grid-template-rows: 80dvh 20dvh;
       }
-      header {
-        padding: 4.5rem 0 2rem;
+
+      .stage {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 0;
+        padding: clamp(1.25rem, 3vw, 2.5rem);
+        gap: clamp(1rem, 3vw, 2.5rem);
+        align-items: center;
       }
-      .brand-lockup {
+
+      .pitch {
+        max-width: 32rem;
+        padding-inline: clamp(0.25rem, 2vw, 1.5rem);
+        animation: rise 0.7s ease-out both;
+      }
+
+      .brand {
         display: flex;
         align-items: center;
         gap: 0.85rem;
-        margin: 0 0 1rem;
+        margin: 0 0 1.1rem;
       }
-      .brand-lockup img {
-        width: clamp(3.1rem, 8vw, 4.2rem);
+
+      .brand img {
+        width: clamp(3rem, 6vw, 4rem);
         height: auto;
         flex-shrink: 0;
+        filter: drop-shadow(0 8px 18px rgba(30, 24, 56, 0.12));
       }
-      .hero-mascot {
-        display: block;
-        width: min(11rem, 42vw);
-        height: auto;
-        margin: 1.75rem 0 0;
-        filter: drop-shadow(0 10px 24px rgba(30, 24, 56, 0.14));
-      }
-      @media (min-width: 640px) {
-        .hero-mascot {
-          margin-left: auto;
-          margin-right: 0;
-        }
-        header {
-          display: grid;
-          grid-template-columns: 1fr auto;
-          grid-template-rows: auto auto auto auto;
-          column-gap: 1.5rem;
-          align-items: start;
-        }
-        .eyebrow { grid-column: 1; }
-        .brand-lockup { grid-column: 1; }
-        .lead { grid-column: 1; }
-        .chip { grid-column: 1; justify-self: start; }
-        .hero-mascot {
-          grid-column: 2;
-          grid-row: 1 / span 4;
-          align-self: center;
-          width: 10.5rem;
-          margin: 0;
-        }
-      }
-      .brand-lockup h1 {
-        margin: 0;
-      }
-      .eyebrow {
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        font-size: 0.8rem;
-        color: var(--plum);
-        margin: 0 0 0.75rem;
-      }
-      h1 {
+
+      .brand h1 {
         font-family: Fraunces, Georgia, serif;
-        font-size: clamp(2.8rem, 8vw, 4.4rem);
-        line-height: 0.95;
+        font-size: clamp(3rem, 7vw, 4.75rem);
+        line-height: 0.92;
         letter-spacing: -0.03em;
-        margin: 0 0 1rem;
-      }
-      .lead {
-        font-size: 1.2rem;
-        max-width: 36rem;
-        margin: 0 0 1.5rem;
-        color: var(--text-muted);
-        line-height: 1.45;
-      }
-      .chip {
-        display: inline-block;
-        background: linear-gradient(135deg, var(--plum-blue), var(--plum));
-        color: #f7f2fc;
-        font-weight: 600;
-        padding: 0.55rem 1rem;
-        border-radius: 999px;
-        font-size: 0.95rem;
-      }
-      main {
-        padding-bottom: 3rem;
-      }
-      section {
-        margin: 0 0 2.5rem;
-      }
-      h2 {
-        font-family: Fraunces, Georgia, serif;
-        font-size: 1.55rem;
-        margin: 0 0 1rem;
-      }
-      p,
-      li {
-        line-height: 1.55;
-      }
-      p {
-        margin: 0 0 0.85rem;
-      }
-      ol {
         margin: 0;
-        padding: 0;
-        list-style: none;
-        display: grid;
-        gap: 0.85rem;
-      }
-      ol li {
-        background: rgba(255, 255, 255, 0.55);
-        border: 1px solid var(--mist);
-        border-radius: 0.7rem;
-        padding: 1rem 1.1rem;
-      }
-      ol strong {
-        display: block;
-        margin-bottom: 0.2rem;
-      }
-      .muted {
-        color: var(--text-muted);
-      }
-      .uwg {
-        color: var(--warn);
-        font-size: 0.95rem;
-      }
-      .catalog {
-        background: rgba(255, 255, 255, 0.55);
-        border: 1px solid var(--mist);
-        border-radius: 0.7rem;
-        padding: 1.1rem 1.15rem;
-      }
-      footer {
-        padding: 1.5rem 0 3rem;
-        border-top: 1px solid var(--mist);
-        font-size: 0.95rem;
-      }
-      .footer-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem 1.5rem;
-      }
-      footer a,
-      main a {
         color: var(--plum-deep);
       }
-      .copyright {
+
+      .headline {
+        font-family: Fraunces, Georgia, serif;
+        font-size: clamp(1.45rem, 2.6vw, 2rem);
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        margin: 0 0 0.85rem;
+        font-weight: 600;
+      }
+
+      .lead {
+        margin: 0 0 1.35rem;
+        font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+        line-height: 1.5;
+        color: var(--text-muted);
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        background: linear-gradient(135deg, var(--plum-bright), var(--plum-deep));
+        color: #faf7fc;
+        font-weight: 600;
+        font-size: 0.98rem;
+        padding: 0.7rem 1.15rem;
+        border-radius: 999px;
+        box-shadow: 0 10px 28px rgba(74, 29, 62, 0.22);
+      }
+
+      .demo {
+        min-width: 0;
+        animation: rise 0.7s ease-out 0.12s both;
+      }
+
+      .demo-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        max-height: min(62dvh, 520px);
+        margin-inline: auto;
+        border-radius: 1.1rem;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 30% 20%, #f3ebf8, transparent 55%),
+          linear-gradient(145deg, #2a2038 0%, #4a1d3e 55%, #1e1838 100%);
+        box-shadow:
+          0 24px 60px rgba(30, 24, 56, 0.22),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+      }
+
+      .demo-frame video {
         display: block;
-        margin-top: 1.75rem;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background: transparent;
+      }
+
+      .demo-fallback {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: 1.5rem;
+        text-align: center;
+        color: #f4eef8;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+      }
+
+      .demo-frame.is-empty .demo-fallback {
+        opacity: 1;
+      }
+
+      .demo-fallback img {
+        width: min(7.5rem, 36%);
+        height: auto;
+        margin-bottom: 0.85rem;
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.25));
+        animation: floaty 3.2s ease-in-out infinite;
+      }
+
+      .demo-fallback p {
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.4;
+        max-width: 16rem;
+        color: rgba(244, 238, 248, 0.88);
+      }
+
+      .rail {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0 clamp(1.25rem, 3vw, 2.5rem);
+        border-top: 1px solid rgba(201, 191, 224, 0.65);
+        background: var(--surface);
+        backdrop-filter: blur(10px);
+        animation: rise 0.6s ease-out 0.2s both;
+      }
+
+      .rail-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.85rem 1.4rem;
+      }
+
+      .rail a {
+        color: var(--plum-deep);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .rail a:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .copyright {
+        margin: 0;
         color: var(--text-muted);
         font-size: 0.85rem;
+        white-space: nowrap;
+      }
+
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes floaty {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      @media (max-width: 860px) {
+        .page {
+          grid-template-rows: auto auto;
+          min-height: 100dvh;
+        }
+
+        .stage {
+          grid-template-columns: 1fr;
+          padding-top: 2rem;
+          padding-bottom: 1.25rem;
+          align-content: start;
+          gap: 1.5rem;
+        }
+
+        .pitch {
+          max-width: none;
+        }
+
+        .demo-frame {
+          max-height: none;
+          aspect-ratio: 16 / 10;
+        }
+
+        .rail {
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          padding-block: 1.25rem;
+          min-height: 20dvh;
+        }
       }
     </style>
   </head>
   <body>
-    <header>
-      <p class="eyebrow">Chrome-Erweiterung</p>
-      <div class="brand-lockup">
-        <img src="./plum-fresh.svg" width="72" height="72" alt="Plum Logo" />
-        <h1>Plum</h1>
-      </div>
-      <p class="lead">
-        Auf einer Produktseite in einem deutschen Shop — etwa MediaMarkt,
-        Amazon oder Otto — zeigt Plum dir nach einem Klick, ob der Preis
-        fair ist und wo es denselben Artikel günstiger gibt.
-      </p>
-      <span class="chip">Bald im Chrome Web Store</span>
-      <img
-        class="hero-mascot"
-        src="./plum-mascot.svg"
-        width="168"
-        height="168"
-        alt=""
-        aria-hidden="true"
-      />
-    </header>
-
-    <main>
-      <section>
-        <h2>So funktioniert Plum</h2>
-        <ol>
-          <li>
-            <strong>1. Produktseite öffnen</strong>
-            Der Button „Plum“ erscheint nur auf erkannten Artikel-Seiten,
-            nicht auf Suche oder Kategorie.
-          </li>
-          <li>
-            <strong>2. Auf „Plum“ klicken</strong>
-            Erst dann wird der Preis verglichen. Vorher passiert nichts im
-            Hintergrund.
-          </li>
-          <li>
-            <strong>3. Vergleich sehen</strong>
-            Deal-Score (günstig / fair / teuer) und Angebote anderer Händler
-            für denselben Artikel.
-          </li>
-        </ol>
-      </section>
-
-      <section>
-        <h2>Welches Produkt</h2>
-        <div class="catalog">
-          <p>
-            Plum erkennt denselben Artikel in verschiedenen Shops. Es liest
-            keine Hersteller-Seiten aus.
+    <div class="page">
+      <section class="stage" aria-label="Plum Überblick">
+        <div class="pitch">
+          <div class="brand">
+            <img src="./plum-fresh.svg" width="72" height="72" alt="" />
+            <h1>Plum</h1>
+          </div>
+          <p class="headline">Finde denselben Artikel günstiger — mit einem Klick.</p>
+          <p class="lead">
+            Auf Produktseiten bei MediaMarkt, Amazon, Otto und Co. zeigt Plum
+            dir sofort, ob der Preis fair ist und wo du sparen kannst. Kein
+            Tab-Hopping, kein Rätselraten.
           </p>
+          <span class="cta">Bald im Chrome Web Store</span>
+        </div>
+
+        <div class="demo">
+          <div class="demo-frame is-empty" id="demo-frame">
+            <video
+              id="demo-video"
+              controls
+              playsinline
+              preload="metadata"
+              poster="./plum-mascot-deal.svg"
+              aria-label="Plum Demo-Video"
+            >
+              <source src="./demo.mp4" type="video/mp4" />
+            </video>
+            <div class="demo-fallback" aria-hidden="true">
+              <img src="./plum-mascot-deal.svg" width="120" height="120" alt="" />
+              <p>Demo-Video folgt hier — Datei als <code>demo.mp4</code> ablegen.</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section>
-        <h2>Partnerlinks</h2>
-        <p class="uwg">
-          Manche Händler-Links sind Partnerlinks. Ein Kauf darüber kann Plum
-          eine Provision bringen — ohne Mehrkosten für dich.
-        </p>
-      </section>
-    </main>
+      <footer class="rail">
+        <div class="rail-links">
+          <a href="./privacy.html">Datenschutz</a>
+          <a href="./impressum.html">Impressum</a>
+        </div>
+        <p class="copyright">© 2026 Plum</p>
+      </footer>
+    </div>
 
-    <footer>
-      <div class="footer-links">
-        <a href="./privacy.html">Datenschutz</a>
-        <a href="./impressum.html">Impressum</a>
-      </div>
-      <p class="copyright">© 2026 Jeremie Münchberg · Deutschland</p>
-    </footer>
+    <script>
+      (function () {
+        var video = document.getElementById('demo-video');
+        var frame = document.getElementById('demo-frame');
+        if (!video || !frame) return;
+
+        function markReady() {
+          frame.classList.remove('is-empty');
+        }
+
+        video.addEventListener('loadeddata', markReady);
+        video.addEventListener('canplay', markReady);
+        video.addEventListener('error', function () {
+          frame.classList.add('is-empty');
+        });
+      })();
+    </script>
   </body>
 </html>
