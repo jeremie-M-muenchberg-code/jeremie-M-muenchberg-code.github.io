@@ -676,18 +676,20 @@
           </p>
           <div class="cta-row">
             <span class="cta">Bald im Chrome Web Store</span>
-            <form class="waitlist" id="waitlist-form" novalidate>
+            <form class="waitlist" id="waitlist-form" method="post" novalidate>
               <div class="waitlist-fields">
                 <label class="sr-only" for="waitlist-email">E-Mail für die Warteliste</label>
                 <input
                   id="waitlist-email"
                   type="email"
-                  name="email"
+                  name="EMAIL"
                   autocomplete="email"
                   inputmode="email"
                   placeholder="E-Mail für Updates"
                   required
                 />
+                <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" class="sr-only" aria-hidden="true" />
+                <input type="hidden" name="locale" value="de" />
                 <button type="submit">Benachrichtigen</button>
               </div>
               <p class="waitlist-status" id="waitlist-status" role="status" aria-live="polite"></p>
@@ -742,7 +744,7 @@
             <summary>Welche Shops unterstützt Plum?</summary>
             <p>
               Plum unterstützt große deutsche Onlineshops wie MediaMarkt,
-              Amazon.de und Otto. Der Plum-Button erscheint auf erkannten
+              Amazon.de und Otto. Der Plum-Button erscheint nur auf erkannten
               Produktseiten, nicht in Suchergebnissen oder Kategorien.
             </p>
           </details>
@@ -812,6 +814,7 @@
       </div>
     </dialog>
 
+    <script src="./brevo-config.js"></script>
     <script>
       (function () {
         var yearEl = document.getElementById('copyright-year');
@@ -830,36 +833,97 @@
           });
         }
 
-        var FORM_ENDPOINT =
+        var CONTACT_ENDPOINT =
           'https://formsubmit.co/ajax/jeremiemunchbergsoftware@gmail.com';
 
-        function wireAjaxForm(options) {
-          var form = document.getElementById(options.formId);
-          var statusEl = document.getElementById(options.statusId);
+        function wireWaitlist() {
+          var form = document.getElementById('waitlist-form');
+          var statusEl = document.getElementById('waitlist-status');
+          var emailInput = document.getElementById('waitlist-email');
+          if (!form || !statusEl || !emailInput) return;
+
+          form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            var email = (emailInput.value || '').trim();
+            if (!email || !emailInput.checkValidity()) {
+              statusEl.textContent = 'Bitte eine gültige E-Mail eingeben.';
+              statusEl.className = 'waitlist-status is-err';
+              emailInput.focus();
+              return;
+            }
+
+            var action =
+              (window.PLUM_BREVO && window.PLUM_BREVO.formAction
+                ? String(window.PLUM_BREVO.formAction)
+                : ''
+              ).trim();
+            if (!action) {
+              statusEl.textContent =
+                'Warteliste noch nicht verbunden — Brevo-Formular-URL in brevo-config.js eintragen.';
+              statusEl.className = 'waitlist-status is-err';
+              return;
+            }
+
+            var button = form.querySelector('button[type="submit"]');
+            statusEl.textContent = 'Wird gesendet…';
+            statusEl.className = 'waitlist-status';
+            if (button) button.disabled = true;
+
+            // Brevo sibforms accepts classic form posts; no-cors avoids browser CORS blocks.
+            fetch(action, {
+              method: 'POST',
+              body: new FormData(form),
+              mode: 'no-cors',
+              keepalive: true,
+            })
+              .then(function () {
+                statusEl.textContent =
+                  'Fast geschafft — bitte Bestätigungsmail von Brevo prüfen (Double-Opt-in).';
+                statusEl.className = 'waitlist-status is-ok';
+                form.reset();
+              })
+              .catch(function () {
+                statusEl.textContent =
+                  'Konnte nicht senden. Bitte später nochmal versuchen.';
+                statusEl.className = 'waitlist-status is-err';
+              })
+              .finally(function () {
+                if (button) button.disabled = false;
+              });
+          });
+        }
+
+        function wireContactForm() {
+          var form = document.getElementById('contact-form');
+          var statusEl = document.getElementById('contact-status');
           if (!form || !statusEl) return;
 
           form.addEventListener('submit', function (event) {
             event.preventDefault();
             if (!form.checkValidity()) {
-              statusEl.textContent = options.invalidMessage;
-              statusEl.className = options.statusClass + ' is-err';
+              statusEl.textContent = 'Bitte alle Felder ausfüllen.';
+              statusEl.className = 'contact-status is-err';
               form.reportValidity();
               return;
             }
 
             var button = form.querySelector('button[type="submit"]');
             statusEl.textContent = 'Wird gesendet…';
-            statusEl.className = options.statusClass;
+            statusEl.className = 'contact-status';
             if (button) button.disabled = true;
 
-            var payload = options.buildPayload(form);
-            fetch(FORM_ENDPOINT, {
+            fetch(CONTACT_ENDPOINT, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',
               },
-              body: JSON.stringify(payload),
+              body: JSON.stringify({
+                name: form.name.value.trim(),
+                email: form.email.value.trim(),
+                message: form.message.value.trim(),
+                _subject: 'Plum Contact',
+              }),
             })
               .then(function (res) {
                 if (!res.ok) throw new Error('bad status');
@@ -868,14 +932,14 @@
                 });
               })
               .then(function () {
-                statusEl.textContent = options.successMessage;
-                statusEl.className = options.statusClass + ' is-ok';
+                statusEl.textContent = 'Danke — Nachricht ist raus.';
+                statusEl.className = 'contact-status is-ok';
                 form.reset();
               })
               .catch(function () {
                 statusEl.textContent =
                   'Konnte nicht senden. Bitte später nochmal versuchen.';
-                statusEl.className = options.statusClass + ' is-err';
+                statusEl.className = 'contact-status is-err';
               })
               .finally(function () {
                 if (button) button.disabled = false;
@@ -883,36 +947,8 @@
           });
         }
 
-        wireAjaxForm({
-          formId: 'waitlist-form',
-          statusId: 'waitlist-status',
-          statusClass: 'waitlist-status',
-          invalidMessage: 'Bitte eine gültige E-Mail eingeben.',
-          successMessage: 'Danke — wir melden uns zum Launch.',
-          buildPayload: function (form) {
-            return {
-              email: form.email.value.trim(),
-              _subject: 'Plum Warteliste',
-              message: 'Bitte zur Plum-Warteliste hinzufügen.',
-            };
-          },
-        });
-
-        wireAjaxForm({
-          formId: 'contact-form',
-          statusId: 'contact-status',
-          statusClass: 'contact-status',
-          invalidMessage: 'Bitte alle Felder ausfüllen.',
-          successMessage: 'Danke — Nachricht ist raus.',
-          buildPayload: function (form) {
-            return {
-              name: form.name.value.trim(),
-              email: form.email.value.trim(),
-              message: form.message.value.trim(),
-              _subject: 'Plum Contact',
-            };
-          },
-        });
+        wireWaitlist();
+        wireContactForm();
 
         var dialog = document.getElementById('contact-dialog');
         var openBtn = document.getElementById('contact-open');
