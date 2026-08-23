@@ -1,15 +1,12 @@
-# Frugia Mascot
+# Frugia Logo
 
-Intern: **Frugia-Maskottchen** · Öffentlich: Figur ohne Namen (wie Logo).
+**Preisschild + Häkchen** — erklärt sofort: Preis prüfen, fairer Deal.
 
-| File | Pose |
-|------|------|
-| `../frugia-mascot.svg` | Idle — leichtes Lächeln (Landing / FAB) |
-| `../frugia-mascot-deal.svg` | Deal — Zwinkern (guter Preis) |
-| `../frugia-mascot-empty.svg` | Empty — neutral (keine Angebote) |
-| `frugia-mascot-idle-ref.png` | Raster-Referenz Idle |
-| `frugia-mascot-deal-ref.png` | Raster-Referenz Deal |
-| `frugia-mascot-celebrate-ref.png` | Raster-Referenz Celebrate |
-| `frugia-mascot-celebrate-sketch.png` | Frühe Celebrate-Skizze |
+| File | Einsatz |
+|------|---------|
+| `../frugia-fresh.svg` | Logo, Favicon, FAB, Chrome-Icons |
+| `../frugia.svg` | Alias (gleiches Design) |
 
-Regeln: **Pflaumen-Silhouette** — leicht länglicher Körper (nicht kreisrund), stubby oval Paddle-Arme, kleine Fuesse. Idle/Deal Arme hoch + Konfetti; Empty Arme runter. Markenfarben; Flat vector.
+Farben: Berry-Lila (`#6b2d5b`), Häkchen hell (`#f7f2fc`), Loch-Akzent (`#5c52a8`).
+
+Legacy-Maskottchen (optional, nicht mehr in UI): `../frugia-mascot*.svg`
