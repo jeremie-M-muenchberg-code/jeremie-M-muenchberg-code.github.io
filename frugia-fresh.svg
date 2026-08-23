@@ -8,7 +8,7 @@
   <g mask="url(#frugia-tag-hole)">
     <path fill="#347433" d="M7 14H47L61 28 47 42H7V17q0-3 3-3V14z" opacity=".85"/>
     <path fill="#347433" d="M6 13H46L60 27 46 41H6V16q0-3 3-3V13z"/>
-    <path fill="#FFC107" d="M6 13H46V22H6V16q0-3 3-3V13z" opacity=".4"/>
+    <path fill="#FFC107" d="M6 13H46V22H6V16q0-3 3-3V13z"/>
   </g>
   <circle cx="54.5" cy="27" r="2.35" fill="none" stroke="#000000" stroke-width="1.1"/>
   <path
