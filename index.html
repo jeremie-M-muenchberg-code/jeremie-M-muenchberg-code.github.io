@@ -57,6 +57,7 @@
           radial-gradient(1200px 700px at 12% 8%, color-mix(in srgb, #FFC107 28%, #FFFFFF) 0%, transparent 55%),
           radial-gradient(900px 600px at 88% 20%, color-mix(in srgb, #FF6F3C 16%, #FFFFFF) 0%, transparent 50%),
           linear-gradient(165deg, #FFFFFF 0%, color-mix(in srgb, #FFC107 12%, #FFFFFF) 55%, color-mix(in srgb, #347433 8%, #FFFFFF) 100%);
+        background-attachment: fixed;
         overflow-x: hidden;
         display: grid;
         grid-template-rows: var(--nav-h) auto;
@@ -121,7 +122,6 @@
 
       .page {
         min-height: calc(100dvh - var(--nav-h));
-        height: calc(100dvh - var(--nav-h));
       }
 
       .stage {
@@ -130,6 +130,7 @@
         grid-template-columns: minmax(0, 1.618fr) minmax(0, 1fr);
         min-height: 100%;
         padding: clamp(1.25rem, 3vw, 2.5rem);
+        padding-bottom: clamp(2.5rem, 6vw, 4rem);
         gap: clamp(1rem, 3vw, 2.5rem);
         align-items: center;
       }
@@ -499,9 +500,8 @@
         gap: 1rem;
         min-height: 8rem;
         padding: 2rem clamp(1.25rem, 3vw, 2.5rem);
-        border-top: 1px solid rgba(0, 0, 0, 0.12);
-        background: var(--surface);
-        backdrop-filter: blur(10px);
+        border-top: 0;
+        background: transparent;
         animation: rise 0.6s ease-out 0.2s both;
       }
 
@@ -533,7 +533,8 @@
       .faq {
         padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.25rem, 3vw, 2.5rem)
           clamp(3rem, 7vw, 5rem);
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-top: 0;
+        background: transparent;
         scroll-margin-top: calc(var(--nav-h) + 0.75rem);
       }
 
@@ -635,7 +636,6 @@
 
         .page {
           min-height: calc(100dvh - var(--nav-h));
-          height: auto;
         }
 
         .stage {
