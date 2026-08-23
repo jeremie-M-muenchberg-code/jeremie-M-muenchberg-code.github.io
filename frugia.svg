@@ -6,17 +6,13 @@
     d="M7 14H47L61 28 47 42H7V17q0-3 3-3V14z M57.2 28a2.15 2.15 0 1 1-4.3 0 2.15 2.15 0 0 1 4.3 0z"
     transform="translate(1 1)"
   />
-  <!-- Tag body with punched hole at tip -->
+  <!-- Tag body with transparent punched hole at tip -->
   <path
     fill="#6b2d5b"
     fill-rule="evenodd"
     d="M6 13H46L60 27 46 41H6V16q0-3 3-3V13z M56.2 27a2.15 2.15 0 1 1-4.3 0 2.15 2.15 0 0 1 4.3 0z"
   />
   <path fill="#8a4576" d="M6 13H46V22H6V16q0-3 3-3V13z" opacity=".4"/>
-  <!-- Metal grommet ring -->
-  <circle cx="56.2" cy="27" r="2.85" fill="none" stroke="#ece8f7" stroke-width="1.35"/>
-  <circle cx="56.2" cy="27" r="2.85" fill="none" stroke="#8a8198" stroke-width=".45"/>
-  <!-- Checkmark -->
   <path
     fill="none"
     stroke="#f7f2fc"
