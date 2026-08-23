@@ -2,7 +2,7 @@
   <defs>
     <mask id="frugia-tag-hole">
       <rect width="64" height="64" fill="white"/>
-      <circle cx="56.2" cy="27" r="2.35" fill="black"/>
+      <circle cx="54.5" cy="27" r="2.35" fill="black"/>
     </mask>
   </defs>
   <g mask="url(#frugia-tag-hole)">
@@ -10,6 +10,7 @@
     <path fill="#6b2d5b" d="M6 13H46L60 27 46 41H6V16q0-3 3-3V13z"/>
     <path fill="#8a4576" d="M6 13H46V22H6V16q0-3 3-3V13z" opacity=".4"/>
   </g>
+  <circle cx="54.5" cy="27" r="2.35" fill="none" stroke="#1e1838" stroke-width="1.1"/>
   <path
     fill="none"
     stroke="#f7f2fc"
