@@ -1,11 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Frugia — Preis prüfen">
-  <!-- Retail price tag: wide top, angled sides, point at bottom with hole -->
-  <path fill="#4a1d3e" d="M15 14h30q3 0 3 3v22l-14 13-14-13V17q0-3 3-3z" transform="translate(1 1)"/>
-  <path fill="#6b2d5b" d="M13 12h30q3 0 3 3v22l-14 13-14-13V15q0-3 3-3z"/>
-  <path fill="#8a4576" d="M13 12h30q3 0 3 3v8H13V15q0-3 3-3z" opacity=".42"/>
-  <!-- Hole at tip (where string attaches) -->
-  <circle cx="32" cy="48.5" r="3.2" fill="#ece8f7"/>
-  <circle cx="32" cy="48.5" r="1.5" fill="#5c52a8"/>
-  <!-- Verified price -->
-  <path fill="none" stroke="#f7f2fc" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round" d="M21 24l8 8 17-17"/>
+  <!-- Retail tag: rectangular body, tip + hole on the right -->
+  <path fill="#4a1d3e" d="M11 13H39L53 29 39 45H11V16q0-3 3-3z" transform="translate(1 1)"/>
+  <path fill="#6b2d5b" d="M10 12H38L52 28 38 44H10V15q0-3 3-3z"/>
+  <path fill="#8a4576" d="M10 12H38V21H10V15q0-3 3-3z" opacity=".42"/>
+  <circle cx="49" cy="28" r="3.2" fill="#ece8f7"/>
+  <circle cx="49" cy="28" r="1.5" fill="#5c52a8"/>
+  <path fill="none" stroke="#f7f2fc" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round" d="M16 24l8 8 17-17"/>
 </svg>
