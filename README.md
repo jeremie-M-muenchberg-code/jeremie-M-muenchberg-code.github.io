@@ -1,3 +1,3 @@
-# Plum
+# Frugia
 
 Öffentliche Website (Datenschutz, Impressum).

@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="./plum-fresh.svg" type="image/svg+xml" />
-    <title>Plum — Preisvergleich auf Klick</title>
+    <link rel="icon" href="./frugia-fresh.svg" type="image/svg+xml" />
+    <title>Frugia — Preisvergleich auf Klick</title>
     <meta
       name="description"
-      content="Plum ist eine Chrome-Erweiterung für deutsche Shops: ein Klick zeigt, ob der Preis fair ist und wo es günstiger geht."
+      content="Frugia ist eine Chrome-Erweiterung für deutsche Shops: ein Klick zeigt, ob der Preis fair ist und wo es günstiger geht."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,9 +19,9 @@
       :root {
         --ink: #1e1838;
         --paper: #f4f0fa;
-        --plum: #6b2d5b;
-        --plum-bright: #8a4576;
-        --plum-deep: #4a1d3e;
+        --berry: #6b2d5b;
+        --berry-bright: #8a4576;
+        --berry-deep: #4a1d3e;
         --mist: #c9bfe0;
         --text-muted: #4a4268;
         --surface: rgba(255, 255, 255, 0.42);
@@ -95,7 +95,7 @@
 
       .topnav a,
       .topnav button.nav-link {
-        color: var(--plum-deep);
+        color: var(--berry-deep);
         font-weight: 600;
         font-size: 0.95rem;
         text-decoration: none;
@@ -153,7 +153,7 @@
         line-height: 0.92;
         letter-spacing: -0.03em;
         margin: 0;
-        color: var(--plum-deep);
+        color: var(--berry-deep);
       }
 
       .headline {
@@ -185,7 +185,7 @@
         justify-content: center;
         height: var(--control-h);
         padding: 0 1.15rem;
-        background: linear-gradient(135deg, var(--plum-bright), var(--plum-deep));
+        background: linear-gradient(135deg, var(--berry-bright), var(--berry-deep));
         color: #faf7fc;
         font-weight: 600;
         font-size: 0.98rem;
@@ -229,9 +229,9 @@
       }
 
       .waitlist input[type='email']:focus {
-        outline: 2px solid var(--plum);
+        outline: 2px solid var(--berry);
         outline-offset: 1px;
-        border-color: var(--plum);
+        border-color: var(--berry);
       }
 
       .waitlist button {
@@ -239,7 +239,7 @@
         padding: 0 1rem;
         border: 0;
         border-radius: 0.65rem;
-        background: var(--plum-deep);
+        background: var(--berry-deep);
         color: #faf7fc;
         font: inherit;
         font-weight: 600;
@@ -249,7 +249,7 @@
       }
 
       .waitlist button:hover {
-        background: var(--plum);
+        background: var(--berry);
       }
 
       .waitlist button:disabled {
@@ -266,7 +266,7 @@
       }
 
       .waitlist-status.is-ok {
-        color: var(--plum-deep);
+        color: var(--berry-deep);
         font-weight: 600;
       }
 
@@ -317,7 +317,7 @@
         font-family: Fraunces, Georgia, serif;
         font-size: 1.45rem;
         margin: 0;
-        color: var(--plum-deep);
+        color: var(--berry-deep);
       }
 
       .contact-close {
@@ -344,7 +344,7 @@
         gap: 0.3rem;
         font-size: 0.9rem;
         font-weight: 600;
-        color: var(--plum-deep);
+        color: var(--berry-deep);
       }
 
       .contact-form input,
@@ -366,9 +366,9 @@
 
       .contact-form input:focus,
       .contact-form textarea:focus {
-        outline: 2px solid var(--plum);
+        outline: 2px solid var(--berry);
         outline-offset: 1px;
-        border-color: var(--plum);
+        border-color: var(--berry);
       }
 
       .contact-actions {
@@ -383,7 +383,7 @@
         padding: 0 1.1rem;
         border: 0;
         border-radius: 0.65rem;
-        background: var(--plum-deep);
+        background: var(--berry-deep);
         color: #faf7fc;
         font: inherit;
         font-weight: 600;
@@ -391,7 +391,7 @@
       }
 
       .contact-actions button[type='submit']:hover {
-        background: var(--plum);
+        background: var(--berry);
       }
 
       .contact-actions button[type='submit']:disabled {
@@ -406,7 +406,7 @@
       }
 
       .contact-status.is-ok {
-        color: var(--plum-deep);
+        color: var(--berry-deep);
         font-weight: 600;
       }
 
@@ -505,7 +505,7 @@
       }
 
       .rail a {
-        color: var(--plum-deep);
+        color: var(--berry-deep);
         text-decoration: none;
         font-weight: 600;
         font-size: 0.95rem;
@@ -539,7 +539,7 @@
         font-family: Fraunces, Georgia, serif;
         font-size: clamp(1.6rem, 3vw, 2.1rem);
         margin: 0 0 1.25rem;
-        color: var(--plum-deep);
+        color: var(--berry-deep);
         letter-spacing: -0.02em;
       }
 
@@ -577,7 +577,7 @@
         right: 0;
         top: 50%;
         transform: translateY(-50%);
-        color: var(--plum);
+        color: var(--berry);
         font-weight: 600;
         font-size: 1.25rem;
       }
@@ -587,7 +587,7 @@
       }
 
       .faq-list summary:hover {
-        color: var(--plum-deep);
+        color: var(--berry-deep);
       }
 
       .faq-list p {
@@ -661,8 +661,8 @@
   </head>
   <body>
     <nav class="topnav" aria-label="Hauptnavigation">
-      <a class="topnav-home" href="./index.html" aria-label="Plum Startseite">
-        <img src="./plum-fresh.svg" width="32" height="32" alt="" />
+      <a class="topnav-home" href="./index.html" aria-label="Frugia Startseite">
+        <img src="./frugia-fresh.svg" width="32" height="32" alt="" />
       </a>
       <div class="topnav-links">
         <a href="#faq">FAQ</a>
@@ -671,15 +671,15 @@
     </nav>
 
     <div class="page">
-      <section class="stage" aria-label="Plum Überblick">
+      <section class="stage" aria-label="Frugia Überblick">
         <div class="pitch">
           <div class="brand">
-            <img src="./plum-fresh.svg" width="72" height="72" alt="" />
-            <h1>Plum</h1>
+            <img src="./frugia-fresh.svg" width="72" height="72" alt="" />
+            <h1>Frugia</h1>
           </div>
           <p class="headline">Finde denselben Artikel günstiger — mit einem Klick.</p>
           <p class="lead">
-            Auf Produktseiten bei MediaMarkt, Amazon, Otto und Co. zeigt Plum
+            Auf Produktseiten bei MediaMarkt, Amazon, Otto und Co. zeigt Frugia
             dir sofort, ob der Preis fair ist und wo du sparen kannst. Kein
             Tab-Hopping, kein Rätselraten.
           </p>
@@ -713,13 +713,13 @@
               controls
               playsinline
               preload="metadata"
-              poster="./plum-mascot-deal.svg"
-              aria-label="Plum Demo-Video"
+              poster="./frugia-mascot-deal.svg"
+              aria-label="Frugia Demo-Video"
             >
               <source src="./demo.mp4" type="video/mp4" />
             </video>
             <div class="demo-fallback" aria-hidden="true">
-              <img src="./plum-mascot-deal.svg" width="120" height="120" alt="" />
+              <img src="./frugia-mascot-deal.svg" width="120" height="120" alt="" />
               <p>Demo-Video folgt hier — Datei als <code>demo.mp4</code> ablegen.</p>
             </div>
           </div>
@@ -736,42 +736,42 @@
         <h2 id="faq-title">FAQ</h2>
         <div class="faq-list">
           <details>
-            <summary>Wie finanziert sich Plum?</summary>
+            <summary>Wie finanziert sich Frugia?</summary>
             <p>
-              Plum ist für dich kostenlos. Kaufst du über einen gekennzeichneten
+              Frugia ist für dich kostenlos. Kaufst du über einen gekennzeichneten
               Partnerlink ein, erhalten wir möglicherweise eine kleine Provision
               vom Shop. Für dich wird der Einkauf dadurch nicht teurer.
             </p>
           </details>
           <details>
-            <summary>Überträgt Plum Daten, bevor ich klicke?</summary>
+            <summary>Überträgt Frugia Daten, bevor ich klicke?</summary>
             <p>
-              Nein. Plum startet den Preisvergleich erst, wenn du auf den
-              Plum-Button klickst. Zuvor werden keine Produktdaten an unsere
+              Nein. Frugia startet den Preisvergleich erst, wenn du auf den
+              Frugia-Button klickst. Zuvor werden keine Produktdaten an unsere
               Server übertragen. Mehr dazu erfährst du in der
               <a href="./privacy.html">Datenschutzerklärung</a>.
             </p>
           </details>
           <details>
-            <summary>Welche Shops unterstützt Plum?</summary>
+            <summary>Welche Shops unterstützt Frugia?</summary>
             <p>
-              Plum unterstützt große deutsche Onlineshops wie MediaMarkt,
-              Amazon.de und Otto. Der Plum-Button erscheint nur auf erkannten
+              Frugia unterstützt große deutsche Onlineshops wie MediaMarkt,
+              Amazon.de und Otto. Der Frugia-Button erscheint nur auf erkannten
               Produktseiten, nicht in Suchergebnissen oder Kategorien.
             </p>
           </details>
           <details>
             <summary>Brauche ich ein Benutzerkonto?</summary>
             <p>
-              Nein. Du kannst Plum ohne Registrierung verwenden. Installiere die
+              Nein. Du kannst Frugia ohne Registrierung verwenden. Installiere die
               Erweiterung und starte den Preisvergleich direkt auf der
               Produktseite.
             </p>
           </details>
           <details>
-            <summary>Wann erscheint Plum im Chrome Web Store?</summary>
+            <summary>Wann erscheint Frugia im Chrome Web Store?</summary>
             <p>
-              Plum erscheint bald im Chrome Web Store. Trag dich oben in die
+              Frugia erscheint bald im Chrome Web Store. Trag dich oben in die
               Warteliste ein und wir benachrichtigen dich, sobald die Erweiterung
               verfügbar ist.
             </p>
@@ -786,7 +786,7 @@
         <a href="./impressum.html">Impressum</a>
       </div>
       <p class="copyright">
-        © <span id="copyright-year">2026</span> Plum • All Rights Reserved
+        © <span id="copyright-year">2026</span> Frugia • All Rights Reserved
       </p>
     </footer>
 
@@ -865,8 +865,8 @@
             }
 
             var action =
-              (window.PLUM_BREVO && window.PLUM_BREVO.formAction
-                ? String(window.PLUM_BREVO.formAction)
+              (window.FRUGIA_BREVO && window.FRUGIA_BREVO.formAction
+                ? String(window.FRUGIA_BREVO.formAction)
                 : ''
               ).trim();
             if (!action) {
@@ -934,7 +934,7 @@
                 name: form.name.value.trim(),
                 email: form.email.value.trim(),
                 message: form.message.value.trim(),
-                _subject: 'Plum Contact',
+                _subject: 'Frugia Contact',
               }),
             })
               .then(function (res) {
