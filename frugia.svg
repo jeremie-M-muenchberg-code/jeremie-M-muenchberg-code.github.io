@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Frugia — Preis prüfen">
-  <!-- Price tag: instantly reads as "check the price" -->
-  <path fill="#4a1d3e" d="M14 12h32a4 4 0 0 1 4 4v32a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4V16a4 4 0 0 1 4-4z"/>
-  <path fill="#6b2d5b" d="M12 10h32a4 4 0 0 1 4 4v32a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/>
-  <path fill="#8a4576" d="M12 10h32a4 4 0 0 1 4 4v10H12V14a4 4 0 0 1 4-4z" opacity=".45"/>
-  <!-- Tag hole -->
-  <circle cx="21" cy="18" r="3.2" fill="#ece8f7"/>
-  <circle cx="21" cy="18" r="1.6" fill="#5c52a8"/>
-  <!-- Check = fair / verified price -->
-  <path fill="none" stroke="#f7f2fc" stroke-width="4.8" stroke-linecap="round" stroke-linejoin="round" d="M21 34l9 9 19-20"/>
+  <!-- Classic price tag: rectangular top, pointed bottom -->
+  <path fill="#4a1d3e" d="M14 13h32a3 3 0 0 1 3 3v27l-16 14-16-14V16a3 3 0 0 1 3-3z"/>
+  <path fill="#6b2d5b" d="M12 11h32a3 3 0 0 1 3 3v27l-16 14-16-14V14a3 3 0 0 1 3-3z"/>
+  <path fill="#8a4576" d="M12 11h32a3 3 0 0 1 3 3v9H12V14a3 3 0 0 1 3-3z" opacity=".45"/>
+  <!-- String hole -->
+  <circle cx="21" cy="18" r="3" fill="#ece8f7"/>
+  <circle cx="21" cy="18" r="1.5" fill="#5c52a8"/>
+  <!-- Verified price -->
+  <path fill="none" stroke="#f7f2fc" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" d="M20 31l8 8 18-19"/>
 </svg>
