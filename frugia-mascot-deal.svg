@@ -14,7 +14,7 @@
   <ellipse cx="64" cy="26" rx="9" ry="7.5" fill="#6b2d5b" stroke="#4a1d3e" stroke-width="1.4" transform="rotate(42 64 26)"/>
   <path fill="#3d6b42" d="M44 6c7 1 13 7 13.5 14-7 0-13.5-4.5-16-12.5 1-.9 1.6-1.5 2.5-1.5z"/>
   <path fill="none" stroke="#3a1830" stroke-width="2" stroke-linecap="round" d="M40 20c.8-4.5 2.5-8.5 6.5-11.5"/>
-  <!-- Elongated plum body -->
+  <!-- Mascot body -->
   <ellipse cx="40" cy="45" rx="18.5" ry="25" fill="#6b2d5b"/>
   <ellipse cx="40" cy="45" rx="18.5" ry="25" fill="none" stroke="#4a1d3e" stroke-width="1.5"/>
   <ellipse cx="32" cy="36" rx="7" ry="11" fill="#8a4576" opacity=".55"/>
