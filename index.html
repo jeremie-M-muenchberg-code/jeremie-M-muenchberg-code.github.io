@@ -17,14 +17,17 @@
     />
     <style>
       :root {
-        --ink: #1e1838;
-        --paper: #f4f0fa;
-        --berry: #6b2d5b;
-        --berry-bright: #8a4576;
-        --berry-deep: #4a1d3e;
-        --mist: #c9bfe0;
-        --text-muted: #4a4268;
-        --surface: rgba(255, 255, 255, 0.42);
+        /* ColorHunt experiment — 347433 · ffc107 · ff6f3c · b22222 */
+        --ink: #1e2a1c;
+        --paper: #fffdf5;
+        --berry: #347433;
+        --berry-bright: #ffc107;
+        --berry-deep: #2a5c28;
+        --accent-warm: #ff6f3c;
+        --accent-hot: #b22222;
+        --mist: #dce8d4;
+        --text-muted: #4a5648;
+        --surface: rgba(255, 255, 255, 0.48);
         /* φ ≈ 1.618 → major ≈ 61.8%, minor ≈ 38.2% */
         --phi: 1.618;
         --phi-major: 61.8%;
@@ -47,9 +50,9 @@
         font-family: 'Source Sans 3', system-ui, sans-serif;
         color: var(--ink);
         background:
-          radial-gradient(1200px 700px at 12% 8%, #e8dff8 0%, transparent 55%),
-          radial-gradient(900px 600px at 88% 20%, #d9cfe8 0%, transparent 50%),
-          linear-gradient(165deg, #faf8fc 0%, var(--paper) 55%, #e6dff2 100%);
+          radial-gradient(1200px 700px at 12% 8%, #f5f9e8 0%, transparent 55%),
+          radial-gradient(900px 600px at 88% 20%, #fff3c4 0%, transparent 50%),
+          linear-gradient(165deg, #fffef8 0%, var(--paper) 55%, #eef5e8 100%);
         overflow-x: hidden;
         display: grid;
         grid-template-rows: var(--nav-h) auto;
@@ -63,8 +66,8 @@
         align-items: center;
         height: var(--nav-h);
         padding: 0 clamp(1.25rem, 3vw, 2.5rem);
-        border-bottom: 1px solid rgba(201, 191, 224, 0.55);
-        background: rgba(250, 248, 252, 0.72);
+        border-bottom: 1px solid rgba(180, 200, 160, 0.55);
+        background: rgba(255, 253, 245, 0.78);
         backdrop-filter: blur(12px);
         z-index: 20;
       }
@@ -144,7 +147,7 @@
         width: clamp(3rem, 6vw, 4rem);
         height: auto;
         flex-shrink: 0;
-        filter: drop-shadow(0 8px 18px rgba(30, 24, 56, 0.12));
+        filter: drop-shadow(0 8px 18px rgba(52, 116, 51, 0.14));
       }
 
       .brand h1 {
@@ -185,12 +188,12 @@
         justify-content: center;
         height: var(--control-h);
         padding: 0 1.15rem;
-        background: linear-gradient(135deg, var(--berry-bright), var(--berry-deep));
-        color: #faf7fc;
+        background: linear-gradient(135deg, var(--berry-bright), var(--berry));
+        color: #1a2418;
         font-weight: 600;
         font-size: 0.98rem;
         border-radius: 999px;
-        box-shadow: 0 10px 28px rgba(74, 29, 62, 0.22);
+        box-shadow: 0 10px 28px rgba(52, 116, 51, 0.24);
         white-space: nowrap;
         line-height: 1;
       }
@@ -225,7 +228,7 @@
       }
 
       .waitlist input[type='email']::placeholder {
-        color: #7a7394;
+        color: #6b7568;
       }
 
       .waitlist input[type='email']:focus {
@@ -271,7 +274,7 @@
       }
 
       .waitlist-status.is-err {
-        color: #8a2f45;
+        color: var(--accent-hot);
       }
 
       .sr-only {
@@ -291,13 +294,13 @@
         border-radius: 1rem;
         padding: 0;
         width: min(26rem, calc(100vw - 2rem));
-        background: #faf8fc;
+        background: #fffef8;
         color: var(--ink);
-        box-shadow: 0 24px 64px rgba(30, 24, 56, 0.28);
+        box-shadow: 0 24px 64px rgba(30, 40, 28, 0.22);
       }
 
       .contact-dialog::backdrop {
-        background: rgba(30, 24, 56, 0.45);
+        background: rgba(30, 40, 28, 0.42);
         backdrop-filter: blur(3px);
       }
 
@@ -411,7 +414,7 @@
       }
 
       .contact-status.is-err {
-        color: #8a2f45;
+        color: var(--accent-hot);
       }
 
       .demo {
@@ -428,10 +431,10 @@
         border-radius: 1.1rem;
         overflow: hidden;
         background:
-          radial-gradient(circle at 30% 20%, #f3ebf8, transparent 55%),
-          linear-gradient(145deg, #2a2038 0%, #4a1d3e 55%, #1e1838 100%);
+          radial-gradient(circle at 30% 20%, #fff8dc, transparent 55%),
+          linear-gradient(145deg, #1e2a1c 0%, #347433 55%, #2a5c28 100%);
         box-shadow:
-          0 24px 60px rgba(30, 24, 56, 0.22),
+          0 24px 60px rgba(30, 40, 28, 0.22),
           inset 0 0 0 1px rgba(255, 255, 255, 0.12);
       }
 
@@ -450,7 +453,7 @@
         place-items: center;
         padding: 1.5rem;
         text-align: center;
-        color: #f4eef8;
+        color: #fffdf5;
         pointer-events: none;
         opacity: 0;
         transition: opacity 0.25s ease;
@@ -473,7 +476,7 @@
         font-size: 0.95rem;
         line-height: 1.4;
         max-width: 16rem;
-        color: rgba(244, 238, 248, 0.88);
+        color: rgba(255, 253, 245, 0.9);
       }
 
       .demo-disclaimer {
@@ -492,7 +495,7 @@
         gap: 1rem;
         min-height: 8rem;
         padding: 2rem clamp(1.25rem, 3vw, 2.5rem);
-        border-top: 1px solid rgba(201, 191, 224, 0.65);
+        border-top: 1px solid rgba(180, 200, 160, 0.65);
         background: var(--surface);
         backdrop-filter: blur(10px);
         animation: rise 0.6s ease-out 0.2s both;
@@ -526,7 +529,7 @@
       .faq {
         padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.25rem, 3vw, 2.5rem)
           clamp(3rem, 7vw, 5rem);
-        border-top: 1px solid rgba(201, 191, 224, 0.55);
+        border-top: 1px solid rgba(180, 200, 160, 0.55);
         scroll-margin-top: calc(var(--nav-h) + 0.75rem);
       }
 
@@ -552,7 +555,7 @@
       }
 
       .faq-list details {
-        border-bottom: 1px solid rgba(201, 191, 224, 0.7);
+        border-bottom: 1px solid rgba(180, 200, 160, 0.7);
         padding: 0.15rem 0;
       }
 
@@ -677,7 +680,7 @@
             <img src="./frugia-fresh.svg" width="72" height="72" alt="Frugia — Preis prüfen" />
             <h1>Frugia</h1>
           </div>
-          <p class="headline">Finde denselben Artikel günstiger — mit einem Klick.</p>
+          <p class="headline">Findet denselben Artikel günstiger — mit einem Klick.</p>
           <p class="lead">
             Auf Produktseiten bei MediaMarkt, Amazon, Otto und Co. zeigt Frugia
             dir sofort, ob der Preis fair ist und wo du sparen kannst. Kein
