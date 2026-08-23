@@ -17,6 +17,7 @@
         --berry: #347433;
         --berry-deep: #347433;
         --paper: #FFFFFF;
+        --muted: rgba(0, 0, 0, 0.55);
       }
       body {
         margin: 0;
@@ -30,12 +31,40 @@
         margin: 0 auto;
         padding: 2.5rem 1.25rem 4rem;
       }
-      h1,
+      h1 {
+        font-family: Nunito, 'Segoe UI', sans-serif;
+        font-weight: 800;
+        font-size: 2rem;
+        letter-spacing: -0.03em;
+        margin: 0 0 1.5rem;
+        color: var(--berry-deep);
+      }
       h2 {
-        font-family: Fraunces, Georgia, serif;
+        font-family: Nunito, 'Segoe UI', sans-serif;
+        font-weight: 700;
+        font-size: 1.15rem;
+        margin: 2rem 0 0.65rem;
+        color: var(--berry-deep);
+      }
+      p,
+      li {
+        margin: 0 0 0.85rem;
+      }
+      .identity {
+        margin: 0 0 0.25rem;
+        line-height: 1.45;
       }
       a {
         color: var(--berry-deep);
+        font-weight: 600;
+      }
+      .muted {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      ul {
+        margin: 0 0 0.85rem;
+        padding-left: 1.2rem;
       }
     </style>
   </head>
@@ -44,39 +73,78 @@
       <p><a href="./index.html">← Frugia</a></p>
       <h1>Impressum</h1>
 
-      <h2>Angaben gemäß § 5 TMG</h2>
-      <p>
+      <h2>Angaben gemäß § 5 DDG</h2>
+      <p class="identity">
         Jeremie Münchberg<br />
         Burgweg 14<br />
         53474 Bad Neuenahr-Ahrweiler<br />
         Deutschland
       </p>
 
-      <h2>Kontakt</h2>
+      <h2>Hilfe &amp; Kontakt</h2>
       <p>
         E-Mail:
         <a href="mailto:jeremiemunchbergsoftware@gmail.com"
           >jeremiemunchbergsoftware@gmail.com</a
         >
       </p>
+      <p class="muted">
+        Bitte senden Sie keine Waren an die Postanschrift — eine Warenannahme
+        ist nicht möglich.
+      </p>
 
-      <h2>Verantwortlich für den Inhalt</h2>
-      <p>Jeremie Münchberg, Anschrift wie oben</p>
+      <h2>Was Frugia ist — und was nicht</h2>
+      <p>
+        Frugia ist eine Chrome-Erweiterung bzw. ein begleitendes Informationsangebot
+        für den Preisvergleich auf Produktseiten deutscher Online-Shops. Sie
+        können sich über Preise und Alternativen informieren. Produkte bestellen
+        Sie auf der Website des jeweiligen Händlers.
+      </p>
+      <p>
+        Verträge über den Erwerb von Produkten kommen ausschließlich zwischen
+        Ihnen und dem jeweiligen Händler zustande. Frugia verkauft selbst keine
+        Waren und ist nicht Vertragspartei Ihrer Bestellungen.
+      </p>
+      <p>
+        Fragen zu einer Bestellung (Lieferung, Retoure, Zahlung) richten Sie
+        bitte direkt an den betreffenden Händler. Bei Fragen zu Frugia schreiben
+        Sie an die Kontakt-E-Mail oben oder nutzen Sie das Kontaktformular auf
+        der <a href="./index.html">Startseite</a>.
+      </p>
+
+      <h2>Inhaltlich verantwortlich</h2>
+      <p class="identity">
+        Jeremie Münchberg<br />
+        Burgweg 14<br />
+        53474 Bad Neuenahr-Ahrweiler<br />
+        Deutschland
+      </p>
+
+      <h2>Partnerlinks / Werbung</h2>
+      <p>
+        Frugia kann Provisionen über Partnerprogramme (z. B. Awin, Amazon
+        Associates) erhalten, wenn Sie über gekennzeichnete Links bei einem
+        Händler einkaufen — ohne Mehrkosten für Sie. Partnerlinks werden in der
+        Nutzeroberfläche kenntlich gemacht.
+      </p>
 
       <h2>EU-Streitschlichtung</h2>
       <p>
         Plattform der EU-Kommission zur Online-Streitbeilegung:
-        <a href="https://ec.europa.eu/consumers/odr/" rel="noopener"
+        <a href="https://ec.europa.eu/consumers/odr/" rel="noopener noreferrer"
           >https://ec.europa.eu/consumers/odr/</a
-        >. Wir sind nicht verpflichtet und nicht bereit, an
+        >.
+      </p>
+      <p>
+        Wir sind nicht verpflichtet und nicht bereit, an
         Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
         teilzunehmen.
       </p>
 
-      <h2>Affiliate-Hinweis</h2>
+      <h2>Datenschutz</h2>
       <p>
-        Frugia kann Provisionen über Partnerprogramme (z. B. Awin, Amazon
-        Associates) erhalten, wenn Nutzer über gekennzeichnete Links einkaufen.
+        Die Datenschutzerklärung von Frugia ist
+        <a href="./privacy.html">hier abrufbar</a>.
       </p>
     </main>
   </body>
