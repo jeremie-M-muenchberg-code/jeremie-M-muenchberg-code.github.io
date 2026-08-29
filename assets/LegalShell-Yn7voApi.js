@@ -1,1 +1,0 @@
-import{r as n,j as e,H as o,F as r,C as l}from"./styles-wMdAcuUu.js";function p({children:s}){const[t,a]=n.useState(!1);return e.jsxs(e.Fragment,{children:[e.jsx(o,{onOpenContact:()=>a(!0)}),e.jsx("main",{className:"legal-page",children:s}),e.jsx(r,{}),e.jsx(l,{open:t,onClose:()=>a(!1)})]})}export{p as L};
